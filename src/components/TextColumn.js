@@ -4,7 +4,6 @@ import styles from "../css/TextColumn.module.scss"
 
 export default function TextColumn(props){
 	const [showMore, setShowMore] = useState(false);
-	console.log(styles.myColor)
 	return (
 		<section className={styles.section}>
 			<div className={styles.left}>

@@ -1,8 +1,52 @@
-import React from "react"
+import React, { useState, useEffect } from "react"
 
-import slot from "../css/SlotColumn.module.css"
+import slot from "../css/SlotColumn.module.scss"
+import SlotTable from "./SlotTable"
+
+import { shortDays as days, shortMonths as months} from "../dateUtils"
 
 export default function SlotColumn(props){
+
+	const [selectedDate, setDate] = useState(new Date())
+	const [showLoader, toggleLoader] = useState(false)
+	const [slotObj, setSlotObj] = useState({})
+
+	const formattedDate = date => 
+		`${days(date.getDay())}, ${date.getDate()} ${months(date.getMonth())}`
+
+
+	useEffect(() => {
+		async function fetchData() {
+			const date = `${selectedDate.getFullYear()}-${selectedDate.getMonth()}-${selectedDate.getDate()}`
+			const url = `http://localhost:3001/api?date=${date}`
+
+			console.log(url)
+			toggleLoader(true)
+			const res = await fetch(url)
+			res
+				.json()
+				.then(res => {
+					console.log("response",res)
+					setSlotObj(res)
+					toggleLoader(false)
+				})
+				.catch(err => console.log("error",err))
+		}
+
+		fetchData();
+	},[selectedDate]);	
+	
+	const handleDateChange= (op) => {
+		const date = selectedDate
+		const dayDuration = 86400000
+		if( op === "next" ){
+			setDate(new Date(date.getTime() + dayDuration))
+		}
+			
+		if( op === "previous")
+			setDate(new Date(date.getTime() - dayDuration))
+	}
+		
 	return (
 		<section className={slot.section}>
 			<div className={slot.widget}>
@@ -18,71 +62,27 @@ export default function SlotColumn(props){
 							<option value="regular checkup">Regular Checkup</option>
 							<option value="followup">FollowUp</option>
 						</select>
+						<div className={slot["down-arrow"]}></div>
 					</fieldset>
 					<div>
 						<div className={ slot.day } id="selected-day">
-							<span> 
+							<span onClick={ ev => handleDateChange("previous")}> 
 								<div className={slot["left-arrow"]}>
 								</div>
 							</span>
-							<span>Today(Sun,7Aug)</span>
-							<span>
+							<span>{ formattedDate(selectedDate) }</span>
+							<span onClick={ ev => handleDateChange("next")}>
 								<div className={slot["right-arrow"]}>
 								</div>
 							</span>
 						</div>
-						<table className={ slot.table }>
-							<tbody>
-								<tr>
-									<th rowspan="3"> Morning</th>
-									<td>10:00 AM</td>
-									<td>10:30 AM</td>
-									<td>11:00 AM</td>
-								</tr>
-								<tr>
-									<td>11:30 AM</td>
-									<td>12:00 PM</td>
-									<td>12:30 PM</td>
-								</tr>
-								<tr>
-									<td>01:00 PM</td>
-									<td>01:30 PM</td>
-									<td>02:00 PM</td>
-								</tr>
-								<tr>
-									<th rowspan="3">Evening</th>
-									<td>02:30 PM</td>
-									<td>03:00 PM</td>
-									<td>03:30 PM</td>
-								</tr>
-								<tr>
-									<td>04:00 PM</td>
-									<td>04:30 PM</td>
-									<td>05:00 PM</td>
-								</tr>
-								<tr>
-									<td>05:30 PM</td>
-									<td>06:00 PM</td>
-									<td>06:30 PM</td>
-								</tr>
-								<tr>
-									<th rowspan="3">Night</th>
-									<td>07:00 PM</td>
-									<td>07:30 PM</td>
-									<td>08:00 PM</td>
-								</tr>
-								<tr>
-									<td>08:30 PM</td>
-									<td>09:00 PM</td>
-									<td>09:30 PM</td>
-								</tr>
-								<tr>
-									<td>10:00 PM</td>
-									<td>10:30 PM</td>
-									<td>11:00 PM</td>
-								</tr>
-							</tbody>  
-						</table>
+						{ showLoader ?
+							<div className={slot.loader}> 
+								<h2>Loading...</h2>
+							</div> :
+							<SlotTable slotObj={slotObj} />
+						}
+						
 					</div>
 					<button>
 						Continue

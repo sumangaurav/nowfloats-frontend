@@ -1,0 +1,182 @@
+@import "../css/config.scss";
+
+.section {
+  width: 50%;
+  height: 600px;
+  display: flex;
+  align-items:center;
+  justify-content: center;
+}
+ 
+.widget {
+  background: white;
+  color: darkgrey;
+  border-radius: 0 0 0.5rem 0.5rem;
+  width: 300px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  font-weight: bold;
+}
+
+.header div{
+  font-size: 1.2rem;
+  line-height: 3;
+  width: 50%;
+  text-align: center;
+}
+
+.header div:first-child{
+  border-right: 2px solid $color3;
+  color: $color2;
+  border-bottom: 2px solid $color2;
+}
+
+.header div:last-child{
+  border-bottom: 2px solid $color3;
+}
+
+table, th, td {
+  border: 1px solid $color3;
+}
+
+.section button {
+  border: none;
+  padding: 1rem;
+  width: 100%;
+  text-transform: uppercase;
+  font-size: 1.6rem;
+  font-weight: bold;
+  color: white;
+  background-color:#88D8D7;
+  border-radius: 0.5rem;
+  margin-top: 0.8rem;
+}
+
+.section table{
+  border-collapse: collapse;
+  color: grey;
+  width: 100%;
+}
+
+.section table td {
+  font-size: 1rem;
+  text-align: center;
+  padding: 0.5rem;
+}
+
+.widget-body{
+  padding: 1rem 1.5rem;
+}
+
+.day{
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid $color3;
+  border-bottom: none;
+  line-height: 1.5;
+}
+
+.day span:first-child{
+  border-right: 1px solid $color3;
+  padding: 0.5rem;
+}
+.day span:last-child{
+  border-left: 1px solid $color3;
+  padding: 0.5rem;
+}
+
+.day span:nth-child(2){
+  padding: 0.5rem;
+  font-size: 1.2rem;
+  font-weight: bold;
+}
+
+fieldset {
+  margin: 0;
+  border-width: 1px;
+  border-radius: 0.5rem;
+  margin-bottom: 1rem;
+  border-color: $color2;
+  color: $color2;
+  position: relative;
+}
+
+.section select {
+  width: 100%;
+  border: none;
+  color: $color3;
+  appearance:none;
+  background: none;
+  position: relative;
+  z-index: 20;
+}
+
+.left-arrow {
+  width: 0px;
+  height: 0px;
+  border-top: 0.8rem solid transparent;
+  border-bottom: 0.8rem solid transparent;
+  border-right: 1.2rem solid $color2;
+}
+
+.right-arrow {
+  width: 0px;
+  height: 0px;
+  border-top: 0.8rem solid transparent;
+  border-bottom: 0.8rem solid transparent;
+  border-left: 1.2rem solid $color2;
+}
+
+.down-arrow {
+  width: 0px;
+  height: 0px;
+  border-left: 0.8rem solid transparent;
+  border-right: 0.8rem solid transparent;
+  border-top: 1.2rem solid $color2;
+
+  position: absolute;
+  right: 1rem;
+  top: 1.2rem;
+  z-index: 10;
+}
+
+th img {
+  height: 2rem;
+}
+th div {
+  text-transform: uppercase;
+  cursor: default;
+}
+
+.strikeText{
+  text-decoration: line-through;
+  cursor: not-allowed;
+}
+
+.available{
+  cursor: pointer;
+}
+
+.available:hover{
+  background-color: $color2;
+  color: white;
+}
+
+.loader {
+  height: 199px;
+  border: 1px solid $color3;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+:export { borderColor : $color3}
+
+@media screen and (max-width: 620px){
+  .section{
+      width: 100%;
+  }
+}

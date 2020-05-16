@@ -8,4 +8,5 @@ main {
   background-repeat: no-repeat;
   background-position: center;
   border-bottom: 0.5rem solid green;
+  min-width: 400px;
 }

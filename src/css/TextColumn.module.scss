@@ -2,8 +2,8 @@
 
 .section{
     height: 600px;
-    min-width: 400px;
-    width: 60%;
+    min-width: 300px;
+    width: 50%;
     display: flex;
     align-items: center;
     justify-content: flex-end;
@@ -50,7 +50,7 @@
     color: $color2;
 }
 
-@media screen and (max-width: 750px){
+@media screen and (max-width: 620px){
     .section{
         width: 100%;
         justify-content: center;
