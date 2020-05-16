@@ -27,20 +27,26 @@ export default function Header(props){
       </div>
       
       <div className="search">
-        {
-          !showSearchBar && 
-          <img onClick={() => toggleSearchBar(true) } className="search-icon" src={searchIcon} alt="search-icon"></img>
-        }
-        
-        {
-          showSearchBar &&
-          (
-            <React.Fragment>
-              <img onClick={() => toggleSearchBar(false) } className="close-icon" src={closeIcon} alt="close-icon"></img>
-              <input name="searchText" type="text" placeholder="Search"/> 
-            </React.Fragment>
-          )
-        }
+        <span className="bp1">
+          {
+            !showSearchBar && 
+            <img onClick={() => toggleSearchBar(true) } className="search-icon" src={searchIcon} alt="search-icon"></img>
+          }
+          
+          {
+            showSearchBar &&
+            (
+              <React.Fragment>
+                <img onClick={() => toggleSearchBar(false) } className="close-icon" src={closeIcon} alt="close-icon"></img>
+                <input name="searchText" type="text" placeholder="Search"/> 
+              </React.Fragment>
+            )
+          }
+        </span>
+        <span className="bp2">
+          <img className="search-icon" src={searchIcon} alt="search-icon"></img>
+          <input name="searchText" type="text" placeholder="Search"/>
+        </span>
       </div>
     </header>
     )

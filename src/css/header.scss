@@ -1,3 +1,5 @@
+@import "../css/config.scss";
+
 /* config defaults*/
 header a, header a:link, header a:visited, header a:hover, header a:active{
     text-decoration: none;
@@ -18,20 +20,22 @@ header {
     font-weight: bold;
 
     border-top: 0.5rem solid green;
+    min-width: 400px;
 }
 
 header nav {
     flex: 1 1 auto;
+    width: 60%;
+    padding-left: calc(5rem + 1%);
 }
 
 header ul {
     list-style: none;
-    margin-left: 0;
-
     display: flex;
     flex-flow: row wrap;
     align-items: center;
-    justify-content: space-evenly;
+    justify-content: space-around;
+    
     
 }
 
@@ -59,17 +63,21 @@ header li {
 }
 
 .search {
-    flex: 0 0 auto;
+    flex: 1 1 auto;
+    text-align: right;
+}
+
+.search span{
     border: 1px solid black;
-    border-right: none;
     border-top-left-radius: 1rem;
     border-bottom-left-radius: 1rem;
-    padding: 0;
+    padding: 0.2rem;
 }
 
 .search input {
     max-width: 12rem;
     border-width: 0px;
+    margin-right: 0.5rem;
 }
 .search-icon{
     height: 1rem;
@@ -83,4 +91,98 @@ header li {
     margin-left: 0.5rem;
     margin-right: 0.3rem;
     cursor: pointer;
+}
+
+.bp1{
+    display: inline;
+    border-right: none;
+}
+
+.bp2{
+    display: none;
+    border-right: 1px solid black;
+    border-radius: 1rem;
+}
+
+@media screen and (min-width: 600px) and (max-width: 800px){
+    header nav {
+        width: 100%;
+        padding-left: calc(1rem + 2%);
+    }
+    header .contact{
+        width: 50%;
+        margin-bottom: 1rem;
+    }
+    header .search{
+        width: 50%;
+        margin-bottom: 1rem;
+        text-align: center;
+    }
+
+    .bp1 {
+        display: none;
+    }
+
+    .bp2{
+        display: inline;
+    }
+}
+
+@media screen and (max-width: 599px){
+    header , header ul{
+        display: block;
+    } 
+
+    header nav {
+        width: 100%;
+        padding-left: 0;
+    }
+
+    header ul{
+        margin-bottom: 0.2rem;
+        padding-left: 0px;
+    }
+    header ul li{
+        padding-left: 5rem;
+        border: 1px solid $color3;
+        line-height: 2.0;
+        margin-left: 1rem;
+        margin-right: 1rem;
+        margin-bottom: 0.2rem;
+        border-radius: 1rem;
+    }
+
+    .contact{
+        padding-left: 5rem;
+        border: 1px solid $color3;
+        line-height: 2.0;
+        margin-left: 1rem;
+        margin-right: 1rem;
+        margin-bottom: 0.2rem;
+        border-radius: 1rem;
+        text-align: left;
+    }
+
+    .search{
+        padding-left: 5rem;
+        border: 1px solid $color3;
+        line-height: 2.0;
+        margin-left: 1rem;
+        margin-right: 1rem;
+        margin-bottom: 0.2rem;
+        border-radius: 1rem;
+        text-align: left;
+    }
+    .search input {
+        width: 100%;
+        background: none;
+    }
+
+    .bp1 {
+        display: none;
+    }
+
+    .bp2{
+        display: inline;
+    }
 }
