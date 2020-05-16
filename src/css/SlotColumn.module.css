@@ -1,0 +1,112 @@
+.section {
+  width: 40%;
+  height: 600px;
+  display: flex;
+  align-items:center;
+  justify-content: center;
+}
+ 
+.widget {
+  background: white;
+  color: darkgrey;
+  border-radius: 0 0 0.5rem 0.5rem;
+  min-width: 350px;
+  max-width: 350px;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  border-bottom: 1px solid #8F8F8F;  
+}
+
+table, th, td {
+  border: 1px solid black;
+}
+
+.section button {
+  border: none;
+  padding: 0.5rem;
+  width: 100%;
+  text-transform: uppercase;
+  font-size: 1rem;
+  font-weight: bold;
+  color: white;
+  background-color:#88D8D7;
+  border-radius: 0.2rem;
+  margin-top: 0.5rem;
+}
+
+.section table{
+  border-collapse: collapse;
+  color: grey;
+  width: 100%;
+}
+
+.section table td {
+  font-size: 0.8rem;
+  text-align: center;
+  padding: 0.2rem;
+}
+
+.widget-body{
+  padding: 1rem;
+}
+
+
+.header div{
+  padding: 0.8rem 1.5rem;
+  font-size: 0.8rem;
+}
+
+.header div:first-child{
+  border-right: 1px solid #8F8F8F;
+}
+
+.day{
+  display: flex;
+  justify-content: space-between;
+  border: 1px solid green;
+  border-bottom: none;
+}
+
+.day span:first-child{
+  border-right: 1px solid green;
+  padding: 0.5rem 0.6rem 0.5rem 0.5rem;
+}
+.day span:last-child{
+  border-left: 1px solid green;
+  padding: 0.5rem 0.5rem 0.5rem 0.6rem;
+}
+
+.day span:nth-child(2){
+  padding: 0.5rem;
+}
+
+fieldset {
+  margin: 0;
+  border-radius: 0.3rem;
+  margin-bottom: 0.5rem;
+  border-color: green;
+  color: green;
+}
+
+.section select {
+  width: 100%;
+}
+
+.left-arrow {
+  width: 0px;
+  height: 0px;
+  border-top: 0.5rem solid transparent;
+  border-bottom: 0.5rem solid transparent;
+  border-right: 0.75rem solid green;
+}
+
+.right-arrow {
+  width: 0px;
+  height: 0px;
+  border-top: 0.5rem solid transparent;
+  border-bottom: 0.5rem solid transparent;
+  border-left: 0.75rem solid green;
+}

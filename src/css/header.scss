@@ -1,0 +1,86 @@
+/* config defaults*/
+header a, header a:link, header a:visited, header a:hover, header a:active{
+    text-decoration: none;
+}
+
+header a {
+    color: grey;
+}
+
+/*nav css below*/
+
+header {
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    font-size: 1.6rem;
+    font-weight: bold;
+
+    border-top: 0.5rem solid green;
+}
+
+header nav {
+    flex: 1 1 auto;
+}
+
+header ul {
+    list-style: none;
+    margin-left: 0;
+
+    display: flex;
+    flex-flow: row wrap;
+    align-items: center;
+    justify-content: space-evenly;
+    
+}
+
+header li {
+    flex: 1 1 auto;
+}
+
+/*contact number css*/
+.contact{
+    flex: 1 1 auto;
+    text-align: center;
+}
+
+.contact a{
+    border: 1px solid black;
+    border-radius: 1rem;
+    padding: 0 0.5rem;
+}
+
+.dialer-icon{
+	height: 1rem;
+	padding-right: 0.5rem;
+	position: relative;
+	top: 0.10rem;
+}
+
+.search {
+    flex: 0 0 auto;
+    border: 1px solid black;
+    border-right: none;
+    border-top-left-radius: 1rem;
+    border-bottom-left-radius: 1rem;
+    padding: 0;
+}
+
+.search input {
+    max-width: 12rem;
+    border-width: 0px;
+}
+.search-icon{
+    height: 1rem;
+    padding-left: 0.3rem;
+    padding-right: 0.5rem;
+    cursor: pointer;
+}
+.close-icon{
+    height: 0.9rem;
+    padding: 0 0.2 rem;
+    margin-left: 0.5rem;
+    margin-right: 0.3rem;
+    cursor: pointer;
+}
